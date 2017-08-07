@@ -6,6 +6,7 @@ library(rgdal)
 
 kriging_points <- function(dawit, resl_ras= 0.1, shp_UAE = "D:/Air Quality/GWR/UAE_boundary"){
   
+  
   #masking layer or shapefile
   
   if (is.character(shp_UAE)) {
@@ -30,7 +31,7 @@ kriging_points <- function(dawit, resl_ras= 0.1, shp_UAE = "D:/Air Quality/GWR/U
   nn<-floor(length(vargram_PM251$gamma)/2)
   var_for_fit<- mean(vargram_PM251[nn:nrow(vargram_PM251),3])
   
-  
+
   # fit the variogram
   vargram_PM251_fit  <- fit.variogram(vargram_PM251, fit.ranges = FALSE, fit.sills = FALSE,
                                       vgm(var_for_fit, "Sph"), fit.kappa = TRUE)

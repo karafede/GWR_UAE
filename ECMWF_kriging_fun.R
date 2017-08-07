@@ -30,6 +30,7 @@ kriging_points <- function(dawit, resl_ras= 0.1, shp_UAE = "D:/Air Quality/GWR/U
   shp_UAE <- spTransform(shp_UAE, CRS("+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"))
   
   ras_points<-rasterToPoints(dawit, fun=NULL, spatial=T)
+  names(ras_points)<- "layer"
 
   
   vargram_PM251 <- variogram(layer ~ 1, ras_points) # calculates sample variogram values
